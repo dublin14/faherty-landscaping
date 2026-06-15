@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: dublin14/dublin-garden-services
+  repo: dublin14/faherty-landscaping
   branch: main
   base_url: https://media-vault-oauth.dublin14.workers.dev
 
