@@ -3,6 +3,7 @@ title: Faherty Gardening and Landscaping
 description: Ivor Faherty Landscaping has served the Dublin area for over 3 decades, offering professional landscaping design, creation, and garden maintenance.
 permalink: /
 layout: layout.njk
+hideTitle: true
 ---
 
 Ivor Faherty Landscaping has served the Dublin area for over 3 decades. Established in 1994 with the aim of offering a professional approach to landscaping design, creation, and garden maintenance.

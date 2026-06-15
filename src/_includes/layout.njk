@@ -43,7 +43,7 @@
 
 <main id="main-content">
   <div class="content-inner">
-    <h1 class="page-title">{{ title }}</h1>
+    {% if not hideTitle %}<h1 class="page-title">{{ title }}</h1>{% endif %}
 
     {% if inlineImage %}
     <div class="inline-image">
@@ -60,7 +60,8 @@
       <div class="gallery-grid">
         {% for img in gallery %}
         <a href="{{ img.src }}" class="gallery-item pswp-link"
-           data-pswp-src="{{ img.src }}"
+           data-pswp-width="{{ img.width }}"
+           data-pswp-height="{{ img.height }}"
            data-pswp-alt="{{ img.alt }}">
           <img src="{{ img.src }}" alt="{{ img.alt }}" title="{{ img.title }}" loading="lazy" />
         </a>
