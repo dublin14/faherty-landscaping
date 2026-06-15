@@ -1,0 +1,79 @@
+backend:
+  name: github
+  repo: dublin14/dublin-garden-services
+  branch: main
+  # Replace with your deployed sveltia-cms-auth worker URL:
+  base_url: https://sveltia-cms-auth.YOUR_SUBDOMAIN.workers.dev
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: pages
+    label: Pages
+    files:
+      - name: home
+        label: Home
+        file: src/index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Meta Description, name: description, widget: string }
+          - { label: Body, name: body, widget: markdown }
+
+      - name: welcome
+        label: Welcome
+        file: src/welcome.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Meta Description, name: description, widget: string }
+          - { label: Inline Image, name: inlineImage, widget: image, required: false }
+          - { label: Inline Image Alt Text, name: inlineImageAlt, widget: string, required: false }
+          - { label: Body, name: body, widget: markdown }
+
+      - name: garden-maintenance
+        label: Garden Maintenance
+        file: src/garden-maintenance.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Meta Description, name: description, widget: string }
+          - { label: Inline Image, name: inlineImage, widget: image, required: false }
+          - { label: Inline Image Alt Text, name: inlineImageAlt, widget: string, required: false }
+          - { label: Body, name: body, widget: markdown }
+
+      - name: general-landscaping
+        label: General Landscaping
+        file: src/general-landscaping.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Meta Description, name: description, widget: string }
+          - { label: Inline Image, name: inlineImage, widget: image, required: false }
+          - { label: Inline Image Alt Text, name: inlineImageAlt, widget: string, required: false }
+          - { label: Body, name: body, widget: markdown }
+
+      - name: garden-design
+        label: Garden Design
+        file: src/garden-design.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Meta Description, name: description, widget: string }
+          - { label: Inline Image, name: inlineImage, widget: image, required: false }
+          - { label: Inline Image Alt Text, name: inlineImageAlt, widget: string, required: false }
+          - { label: Body, name: body, widget: markdown }
+
+      - name: completed-projects
+        label: Completed Projects
+        file: src/completed-projects.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Meta Description, name: description, widget: string }
+          - { label: Body, name: body, widget: markdown }
+
+  - name: gallery
+    label: Gallery Images
+    folder: src/gallery
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Image, name: image, widget: image }
+      - { label: Alt Text, name: alt, widget: string }
+      - { label: Caption, name: title, widget: string, required: false }

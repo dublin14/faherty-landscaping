@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }} | {{ site.name }}</title>
+  {% if description %}<meta name="description" content="{{ description }}" />{% endif %}
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Unica+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.min.css" />
+</head>
+<body>
+
+<header id="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-name-link">{{ site.name }}</a>
+    <p class="site-slogan">{{ site.slogan }}</p>
+  </div>
+</header>
+
+<nav id="main-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-menu" role="menubar">
+      <li><a href="/dublin-gardening-services/">Welcome</a></li>
+      <li><a href="/garden-maintenance/">Garden Maintenance</a></li>
+      <li><a href="/general-landscaping/">General Landscaping</a></li>
+      <li><a href="/dublin_garden_design/">Garden Design</a></li>
+      <li><a href="/completed-projects/">Completed Projects</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="phone-banner">
+  <i class="fas fa-phone"></i>
+  <a href="tel:{{ site.phone }}">Call Ivor Now: {{ site.phoneDisplay }}</a>
+</div>
+
+<main id="main-content">
+  <div class="content-inner">
+    <h1 class="page-title">{{ title }}</h1>
+
+    {% if inlineImage %}
+    <div class="inline-image">
+      <img src="{{ inlineImage }}" alt="{{ inlineImageAlt or title }}" loading="lazy" />
+    </div>
+    {% endif %}
+
+    <div class="page-body">
+      {{ content | safe }}
+    </div>
+
+    <section class="gallery" aria-label="Image Gallery">
+      <h2>Image Gallery</h2>
+      <div class="gallery-grid">
+        {% for img in gallery %}
+        <a href="{{ img.src }}" class="gallery-item pswp-link"
+           data-pswp-src="{{ img.src }}"
+           data-pswp-alt="{{ img.alt }}">
+          <img src="{{ img.src }}" alt="{{ img.alt }}" title="{{ img.title }}" loading="lazy" />
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer id="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="/images/inline-images/image-7_0.png" alt="{{ site.name }} logo" width="211" height="54" />
+      <p>Serving the greater Dublin area.</p>
+      <address>{{ site.address }}</address>
+    </div>
+    <div class="footer-social">
+      <a href="{{ site.facebook }}" title="Facebook" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://wa.me/{{ site.phone | replace('+', '') }}" title="WhatsApp" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="mailto:{{ site.email }}" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+    <p class="copyright">&copy; {{ site.name }}. Developed by <a href="https://CivicandDigital.ie" target="_blank" rel="noopener noreferrer">CivicandDigital.ie</a></p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/umd/photoswipe-lightbox.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/umd/photoswipe.umd.min.js"></script>
+<script>
+  // Hamburger nav toggle
+  const btn = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    menu.classList.toggle('open', !open);
+  });
+
+  // Mark active nav link
+  document.querySelectorAll('#nav-menu a').forEach(a => {
+    if (a.getAttribute('href') === location.pathname ||
+        location.pathname.startsWith(a.getAttribute('href').replace(/\/$/, '')) && a.getAttribute('href') !== '/') {
+      a.classList.add('active');
+    }
+  });
+
+  // PhotoSwipe gallery
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '.gallery-grid',
+    children: '.pswp-link',
+    pswpModule: PhotoSwipe,
+    bgOpacity: 0.85,
+  });
+  lightbox.init();
+</script>
+
+</body>
+</html>
