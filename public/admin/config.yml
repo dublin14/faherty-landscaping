@@ -2,8 +2,7 @@ backend:
   name: github
   repo: dublin14/dublin-garden-services
   branch: main
-  # Replace with your deployed sveltia-cms-auth worker URL:
-  base_url: https://sveltia-cms-auth.YOUR_SUBDOMAIN.workers.dev
+  base_url: https://media-vault-oauth.dublin14.workers.dev
 
 media_folder: public/images/uploads
 public_folder: /images/uploads
