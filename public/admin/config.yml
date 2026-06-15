@@ -71,8 +71,10 @@ collections:
     label: Gallery Images
     folder: src/gallery
     create: true
-    slug: "{{slug}}"
+    slug: "{{order}}-{{slug}}"
+    label_singular: Gallery Image
     fields:
       - { label: Image, name: image, widget: image }
       - { label: Alt Text, name: alt, widget: string }
       - { label: Caption, name: title, widget: string, required: false }
+      - { label: Sort Order, name: order, widget: number, default: 99 }

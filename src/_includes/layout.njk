@@ -58,12 +58,10 @@
     <section class="gallery" aria-label="Image Gallery">
       <h2>Image Gallery</h2>
       <div class="gallery-grid">
-        {% for img in gallery %}
-        <a href="{{ img.src }}" class="gallery-item pswp-link"
-           data-pswp-width="{{ img.width }}"
-           data-pswp-height="{{ img.height }}"
-           data-pswp-alt="{{ img.alt }}">
-          <img src="{{ img.src }}" alt="{{ img.alt }}" title="{{ img.title }}" loading="lazy" />
+        {% for img in collections.gallery %}
+        <a href="{{ img.data.image }}" class="gallery-item pswp-link"
+           data-pswp-alt="{{ img.data.alt }}">
+          <img src="{{ img.data.image }}" alt="{{ img.data.alt }}" title="{{ img.data.title }}" loading="lazy" />
         </a>
         {% endfor %}
       </div>

@@ -4,6 +4,11 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter("keys", obj => Object.keys(obj));
 
+  eleventyConfig.addCollection("gallery", (api) =>
+    api.getFilteredByGlob("src/gallery/*.md")
+      .sort((a, b) => (a.data.order || 99) - (b.data.order || 99))
+  );
+
   return {
     dir: {
       input: "src",
