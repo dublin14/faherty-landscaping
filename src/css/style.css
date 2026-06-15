@@ -28,12 +28,13 @@ ul { list-style: disc; padding-left: 1.5rem; }
 }
 .header-inner { max-width: var(--max-width); margin: 0 auto; }
 .site-name-link {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(1.3rem, 4vw, 2rem);
-  font-weight: 700;
+  font-family: 'Unica One', sans-serif;
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  font-weight: 400;
   color: var(--green);
   display: block;
   margin-bottom: 0.2rem;
+  letter-spacing: 0.02em;
 }
 .site-name-link:hover { color: var(--orange); }
 .site-slogan {
@@ -129,12 +130,14 @@ ul { list-style: disc; padding-left: 1.5rem; }
 .content-inner { max-width: var(--max-width); margin: 0 auto; }
 
 .page-title {
-  font-family: 'Cinzel', serif;
+  font-family: 'Unica One', sans-serif;
   color: var(--green);
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  font-weight: 400;
   margin-bottom: 1.5rem;
   border-bottom: 2px solid var(--off-white);
   padding-bottom: 0.5rem;
+  letter-spacing: 0.02em;
 }
 
 .inline-image {
